@@ -149,8 +149,10 @@ function breed(a,b) {
 	return [newA, newB];
 }
 
+var result_set = {};
+//var strands = [];
+
 function sequence(strands) {
-	var result_set = {};
 	for(var i=0; i<strands.length;i++) {
 		result_set[strands[i]] = strength(strands[i]);
 	}
@@ -162,7 +164,6 @@ function sequence(strands) {
 			result_set[new_strands[1]] = strength(new_strands[1]);
 		}
 	}
-	return result_set;
 }
 
 function start() {
@@ -170,11 +171,12 @@ function start() {
 	new Request.JSON({
 		url: "/get",
 		onComplete: function(strands){
+			result_set = {};
 			var start = new Date().getTime();
-			var results = sequence(strands);
+			sequence(strands);
 			var end = new Date().getTime();
 			$('time').innerHTML = (end - start);
-			$('results').innerHTML = results.toSource();
+			//$('results').innerHTML = result_set.toSource();
 		}}).get();
 }
 
