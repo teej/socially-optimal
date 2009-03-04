@@ -149,10 +149,10 @@ function breed(a,b) {
 	return [newA, newB];
 }
 
-var result_set = {};
-//var strands = [];
 
 function sequence(strands) {
+	var result_set = {};
+	
 	for(var i=0; i<strands.length;i++) {
 		result_set[strands[i]] = strength(strands[i]);
 	}
@@ -167,17 +167,22 @@ function sequence(strands) {
 }
 
 function start() {
-	console.log("starting");
 	new Request.JSON({
 		url: "/get",
-		onComplete: function(strands){
-			result_set = {};
+		method: "get",
+		onComplete: function(data){
 			var start = new Date().getTime();
-			sequence(strands);
+			var result_set = sequence(data);
 			var end = new Date().getTime();
-			$('time').innerHTML = (end - start);
+			//$('time').innerHTML = (end - start);
 			//$('results').innerHTML = result_set.toSource();
+			emit(result_set);
+			setTimeout("start()", 500);
 		}}).get();
+}
+
+function emit(data) {
+	new Request({ url: "/emit" }).send("data=" + data);
 }
 
 function type_count() {

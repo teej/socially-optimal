@@ -7,7 +7,11 @@ get '/' do
 end
 
 get '/get' do
-	generate(100).to_json
+	generate(16).to_json
+end
+
+post '/emit' do
+	"1"
 end
 
 def generate(n=1)
