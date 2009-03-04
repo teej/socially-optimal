@@ -1,0 +1,65 @@
+Genetic algorithms consist of  the following:
+http://en.wikipedia.org/wiki/Genetic_algorithms
+
+	1. Choose initial population
+		-Randomly find 16 character combinations
+	2. Evaluate the fitness of each individual in the population
+		-Calculate a combinations "score"
+	3. Repeat
+		1. Select best-ranking individuals to reproduce
+			- use roulette wheel selection to find "survivors"
+			- implement binary search to pull survivor from wheel
+			- http://en.wikipedia.org/wiki/Selection_(genetic_algorithm)
+		2. Breed new generation through crossover and mutation (genetic operations) and give birth to offspring
+			- Do crossovers using "Crossover for Ordered Chromosomes"
+			- http://en.wikipedia.org/wiki/Crossover_(genetic_algorithm)
+			- Apply light mutation using random character swaps
+			- http://en.wikipedia.org/wiki/Mutation_(genetic_algorithm)
+		3. Evaluate the individual fitnesses of the offspring
+		4. Replace worst ranked part of population with offspring
+			- Replace based on reverse-roulette selection or bottom %
+	4. Until <terminating condition>
+
+Data integrity -
+Track the options they use to breed new generations so results can be reproduced.
+
+A couple things:
+- Users get a population of 100
+- only 10ish breedings a day
+- rank users based on overall score/single highest score.
+
+==User==
+e-mail address
+password
+name
+avatar
+score
+Gladiator
+Society
+
+==Society==
+name
+rule type (democracy, meritocracy, dictatorship, etc.)
+	-determines the selection method (top %, roulette, random, average peron survives)
+magic or science
+	-determines if there is more crossover or more mutation
+Generation(s) x10 a day
+
+==Generation==
+generation #
+score
+Villager(s) x1000
+
+==Villager==
+16 char string
+
+==Gladiator==
+Villager
+score
+name
+
+
+**Flow of site**
+1. User signs in
+2. User picks name, avatar, society name, rule type, mos
+3. ruby

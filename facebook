@@ -1,0 +1,102 @@
+Optimal Movie Seating
+
+This work is licensed under a Creative Commons Attribution-NonCommercial 2.5 License.
+
+
+Your name is Randall, former NASA roboticist and all-around smart guy. You and fifteen friends are on your way to see a movie about velociraptors and math.
+
+Amongst the group, there is a Byzantine array of friendships, enmities, romantic entanglements, and unrequited crushes. Because you are smart and well-liked, your friends have asked you to arrange their order of seating to maximize social enjoyment. You will need to come up with an arrangement of 16 consecutive seats, all in the same row, that maximizes the social enjoyment of you and your friends, based on the data given below:
+
+Your friends:
+
+    * Alice
+    * Bob
+    * Carol
+    * Dave
+    * Eve
+    * Isaac
+    * Justin
+    * Mallory
+    * Pat
+    * Victor
+    * PLod
+    * Randall (you)
+    * Steve
+    * Trent
+    * Walter
+    * Zoe
+
+Relationship types:
+
+    * Friends (F)
+    * In A Relationship (R)
+    * One-Way Crush (C)
+    * Acquaintances (A)
+    * Mutual Strangers (S)
+    * Enemy (E)
+
+Each one-way pair between two people has only one of these relationship types, listed in the large array below.
+
+Social enjoyment point values:
+
+    * 1 pt: Seating acquaintances next to each other
+    * 2 pts: Seating two friends next to each other
+    * 3 pts: Seating two people in a relationship next to each other
+    * 1 pt: Seating someone next to their crush
+    * 0 pt: Seating someone next to someone who has a crush on them
+    * 4 pts: Seating two people together who have mutual crushes on each other
+    * 0 pts: Seating someone next to a person they are strangers with
+    * -4 pts: Seating enemies next to each other
+    * -3 pts: Seating two people in a relationship not next to each other and between them there is someone with a crush on one of them
+    * -2 pts: Seating two people in a relationship not next to each other but between them there are no people with a crush on either of them
+    * -2 pts: Seating someone not next to their crush but with that person's significant other between them and the crush
+    * -1 pts: Seating someone surrounded by strangers
+
+Calculate the total "social enjoyment score" of a particular 16-seat configuration by counting the number of times each of the above sub-configurations occurs and adding its point value.
+
+The Byzantine array:
+
+            A   B   C   D   E   I   J   M   P   V   L   R   S   T   W   Z
+- Alice     .   R   F   F   E   F   A   E   F   F   A   C   A   F   A   S
+- Bob       R   .   F   F   E   F   A   E   F   A   A   F   A   F   A   S
+- Carol     F   F   .   F   A   A   C   E   A   A   F   F   A   F   F   F
+- Dave      F   F   F   .   A   A   F   C   S   S   A   F   F   F   A   S
+- Eve       E   C   A   A   .   R   E   F   A   S   E   C   A   F   E   A
+- Isaac     F   F   A   A   R   .   F   E   A   A   F   F   S   F   A   S
+- Justin    A   A   A   F   E   F   .   E   F   F   R   F   E   C   F   S
+- Mallory   E   E   E   S   F   E   E   .   S   S   E   C   F   C   A   S
+- Pat       F   F   A   S   A   A   F   S   .   C   F   F   A   F   F   S
+- Victor    F   A   A   S   S   A   F   S   C   .   F   F   A   F   F   S
+- PLod      A   A   F   A   E   F   R   E   F   F   .   F   A   F   F   S
+- Randall   F   F   F   F   F   F   F   F   F   F   F   .   F   F   F   A
+- Steve     A   A   A   F   A   S   E   F   A   A   A   F   .   F   F   R
+- Trent     F   F   F   F   F   F   F   F   F   F   F   F   F   .   F   A
+- Walter    C   A   F   A   E   A   F   A   F   F   F   F   F   F   .   S
+- Zoe       S   S   F   S   A   S   S   S   S   S   S   A   R   A   S   .
+
+Examples (how to read the array):
+
+    * Walter has an unrequited crush on Alice.
+    * Randall (you) are friends with Mallory; Mallory has an unrequited crush on you.
+    * Zoe and Dave are strangers.
+    * Eve and Isaac are in a relationship.
+    * Bob and Carol are friends.
+
+
+Write one or more programs that will yield a seating configuration which maximizes social enjoyment, using any of the following programming languages:
+
+    * C++
+    * Java
+    * JavaScript
+    * OCaml/SML
+    * Perl
+    * PHP
+    * Python
+
+For extra credit, you may submit additional solutions in the other languages as well as solutions in languages not listed here. Approximate or probabalistic solutions that are particularly clever are also appreciated.
+
+Please send your code and solutions (and a resume) to:
+
+{ (0xFACEB00C >> 2) in decimal format } @ facebook.com
+
+Please put [velociraptor] in the subject line. 
